@@ -104,17 +104,23 @@ img {
   position: relative;
   z-index: 20;
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'brand actions'
+    'nav nav';
+  column-gap: 20px;
+  row-gap: 18px;
   align-items: center;
   padding: 18px 20px;
   margin-bottom: 0;
 }
 
 .brand-lockup {
+  grid-area: brand;
   display: flex;
   align-items: center;
   gap: 18px;
+  min-width: 0;
 }
 
 .brand-button {
@@ -123,6 +129,7 @@ img {
   background: transparent;
   color: inherit;
   text-align: inherit;
+  justify-self: start;
 }
 
 .brand-mark {
@@ -192,10 +199,12 @@ html[dir='rtl'] .brand-title {
 }
 
 .topnav {
+  grid-area: nav;
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .nav-button {
@@ -219,10 +228,13 @@ html[dir='rtl'] .brand-title {
 }
 
 .topbar-actions {
+  grid-area: actions;
   display: flex;
   align-items: center;
   gap: 12px;
   justify-self: end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .language-switch {
@@ -953,11 +965,16 @@ button:disabled {
 @media (max-width: 1080px) {
   .topbar {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      'brand'
+      'actions'
+      'nav';
     justify-items: stretch;
   }
 
   .topbar-actions {
     justify-self: start;
+    justify-content: flex-start;
   }
 
   .hero-section,
