@@ -106,7 +106,7 @@ interface EstimateResult {
 const BUSINESS_DETAILS = {
   companyName: {
     en: 'Al-Iktisah Integrated Home Services Company',
-    ar: 'شركة الاكتساح للخدمات المنزلية المتكاملة',
+    ar: 'شركة الإكتساح للخدمات المنزلية المتكاملة - طرابلس',
   },
   brandName: {
     en: 'Sweepy Home Services',
