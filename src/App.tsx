@@ -78,6 +78,11 @@ interface Testimonial {
   role: Translation;
 }
 
+interface SceneHighlight {
+  icon: LucideIcon;
+  label: Translation;
+}
+
 interface EstimateFormState {
   name: string;
   phone: string;
@@ -469,6 +474,24 @@ const testimonials: Testimonial[] = [
     role: { en: 'Replace with approved review', ar: 'استبدلها بمراجعة معتمدة' },
   },
 ];
+
+const heroSceneHighlights: SceneHighlight[] = [
+  {
+    icon: Sparkles,
+    label: { en: 'Deep clean', ar: 'تنظيف عميق' },
+  },
+  {
+    icon: Sofa,
+    label: { en: 'Sofa care', ar: 'عناية بالكنب' },
+  },
+  {
+    icon: ShieldCheck,
+    label: { en: 'Ready crew', ar: 'فريق جاهز' },
+  },
+];
+
+const serviceToneClasses = ['tone-sky', 'tone-mint', 'tone-amber', 'tone-rose'] as const;
+
 const pageCopy = {
   en: {
     brandSubtitle: 'Integrated home services in Tripoli',
@@ -863,7 +886,7 @@ function App() {
     { label: t.formDate, value: estimateForm.preferredDate || t.pendingValue },
   ];
 
-  const featuredServices = services.slice(0, 4);
+  const featuredServices = services.slice(0, 3);
 
   const updateEstimateField = <K extends keyof EstimateFormState>(field: K, value: EstimateFormState[K]) => {
     setEstimateForm((current) => ({ ...current, [field]: value }));
@@ -903,7 +926,7 @@ function App() {
     <div className="cleaning-app" dir={direction}>
       <div className="page-shell">
         <header className="topbar card">
-          <button type="button" className="brand-lockup brand-button" onClick={() => goToSection('home')}>
+          <button type="button" className="brand-lockup brand-button brand-button-3d" onClick={() => goToSection('home')}>
             <span className="brand-mark">
               <img src={BRAND_LOGO_PATH} alt={translate(BUSINESS_DETAILS.brandName, locale)} />
             </span>
@@ -973,11 +996,40 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-panel card">
+            <div className="hero-panel card hero-panel-3d">
               <div className="hero-panel-header">
                 <span className="mini-badge">{t.heroPanelBadge}</span>
                 <h2>{t.heroPanelTitle}</h2>
                 <p>{t.heroPanelDescription}</p>
+              </div>
+
+              <div
+                className="hero-scene"
+                role="img"
+                aria-label={locale === 'ar' ? 'مشهد ثلاثي الأبعاد يعرض خدمات منزلية متكاملة' : '3D home services scene'}
+              >
+                <div className="hero-scene-grid" />
+                <div className="hero-scene-orb hero-scene-orb-a" />
+                <div className="hero-scene-orb hero-scene-orb-b" />
+                <div className="hero-scene-core">
+                  <span className="hero-scene-layer hero-scene-layer-base" />
+                  <span className="hero-scene-layer hero-scene-layer-middle" />
+                  <span className="hero-scene-layer hero-scene-layer-top" />
+                  <span className="hero-scene-logo">
+                    <House size={28} />
+                  </span>
+                </div>
+                {heroSceneHighlights.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label.en} className={`hero-scene-chip hero-scene-chip-${index + 1}`}>
+                      <span className="hero-scene-chip-icon">
+                        <Icon size={14} />
+                      </span>
+                      <span>{translate(item.label, locale)}</span>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="price-preview-list">
@@ -1020,10 +1072,11 @@ function App() {
             />
 
             <div className="service-grid">
-              {services.map((service) => {
+              {services.map((service, index) => {
                 const Icon = service.icon;
+                const toneClass = serviceToneClasses[index % serviceToneClasses.length];
                 return (
-                  <article key={service.id} className="service-card card">
+                  <article key={service.id} className={`service-card card service-card-3d ${toneClass}`}>
                     <div className="service-icon">
                       <Icon size={22} />
                     </div>
