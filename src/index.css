@@ -870,6 +870,14 @@ html[dir='rtl'] .brand-title {
   max-width: 720px;
 }
 
+.section-heading h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+}
+
+.section-heading p {
+  max-width: 62ch;
+}
+
 .service-grid,
 .process-grid,
 .trust-grid,
@@ -881,21 +889,21 @@ html[dir='rtl'] .brand-title {
 }
 
 .service-grid {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .process-grid,
 .testimonial-grid {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .trust-grid,
 .contact-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .gallery-grid {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 .service-card,
 .process-card,
@@ -1139,7 +1147,7 @@ html[dir='rtl'] .brand-title {
 }
 
 .estimate-layout {
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
 }
 
 .about-story,
@@ -1533,8 +1541,18 @@ button:disabled {
     gap: 16px;
   }
 
+  .content-stack,
+  .composite-page,
+  .about-contact-stack {
+    gap: 20px;
+  }
+
   .hero-section {
     gap: 12px;
+  }
+
+  .page-panel {
+    padding-inline-end: 0;
   }
 
   .topnav {
@@ -1657,8 +1675,19 @@ button:disabled {
     font-size: 0.8rem;
   }
 
+  .section-heading h2 {
+    font-size: clamp(1.5rem, 6vw, 1.95rem);
+    margin: 12px 0 10px;
+  }
+
+  .section-heading p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
   .brand-lockup {
     align-items: flex-start;
+    gap: 12px;
   }
 
   .brand-mark {
@@ -1689,6 +1718,58 @@ button:disabled {
     font-size: 0.8rem;
   }
 
+  .service-card,
+  .process-card,
+  .trust-card,
+  .gallery-copy,
+  .testimonial-card,
+  .contact-card,
+  .brand-showcase,
+  .brand-video-card {
+    padding: 18px;
+  }
+
+  .about-story,
+  .about-details,
+  .estimate-summary,
+  .contact-form {
+    height: auto;
+  }
+
+  .gallery-visual {
+    min-height: 150px;
+    padding: 18px;
+  }
+
+  .gallery-notes span {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .price-note,
+  .summary-tip,
+  .social-placeholder,
+  .inner-card {
+    padding: 16px;
+  }
+
+  .estimate-range {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 1.3rem;
+  }
+
+  .booking-ready-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .booking-ready-actions > *,
+  .form-actions > * {
+    width: 100%;
+    justify-content: center;
+  }
+
   .service-footer,
   .detail-row,
   .summary-row,
@@ -1716,5 +1797,154 @@ button:disabled {
     height: 58px;
     padding: 0;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 560px) {
+  .cleaning-app {
+    padding: 12px;
+  }
+
+  .topbar {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .language-switch {
+    align-self: flex-start;
+  }
+
+  .inline-whatsapp {
+    width: 100%;
+  }
+
+  .content-stack,
+  .composite-page,
+  .about-contact-stack {
+    gap: 16px;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .about-story,
+  .about-details,
+  .estimate-form,
+  .estimate-summary,
+  .contact-form,
+  .footer,
+  .service-card,
+  .process-card,
+  .trust-card,
+  .testimonial-card,
+  .contact-card,
+  .brand-showcase,
+  .brand-video-card {
+    padding: 16px;
+  }
+
+  .section-badge,
+  .mini-badge {
+    padding: 7px 11px;
+    font-size: 0.76rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1.42rem;
+    margin: 10px 0 8px;
+  }
+
+  .section-heading p,
+  .hero-description,
+  .hero-panel-header p,
+  .about-block p,
+  .contact-form p,
+  .summary-note,
+  .footer p,
+  .contact-card small {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .service-grid,
+  .process-grid,
+  .trust-grid,
+  .gallery-grid,
+  .testimonial-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-layout,
+  .about-media-grid,
+  .contact-layout,
+  .estimate-layout {
+    gap: 14px;
+  }
+
+  .brand-showcase-image {
+    width: min(100%, 220px);
+    border-radius: 22px;
+  }
+
+  .about-video-player {
+    border-radius: 18px;
+  }
+
+  .gallery-visual {
+    min-height: 132px;
+    padding: 16px;
+  }
+
+  .gallery-copy {
+    padding: 16px;
+  }
+
+  .detail-row,
+  .summary-row {
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 12px 14px;
+  }
+
+  .estimate-range {
+    font-size: 1.2rem;
+  }
+
+  .summary-tip,
+  .social-placeholder,
+  .inner-card,
+  .price-note {
+    padding: 14px;
+  }
+
+  .social-tags {
+    gap: 8px;
+  }
+
+  .social-tags a,
+  .social-tags span {
+    font-size: 0.82rem;
+    padding: 8px 10px;
+  }
+
+  .service-footer {
+    gap: 10px;
+  }
+
+  .floating-whatsapp {
+    inset-inline-end: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
   }
 }
