@@ -135,11 +135,31 @@ const BRAND_LOGO_PATH = `${import.meta.env.BASE_URL}sweepy-logo.svg`;
 const ABOUT_VIDEO_PATH = `${import.meta.env.BASE_URL}sweepy-about-video.mp4`;
 
 const navigationItems = [
-  { id: 'home', label: { en: 'Home', ar: 'الرئيسية' } },
-  { id: 'services', label: { en: 'Services', ar: 'الخدمات' } },
-  { id: 'process', label: { en: 'How it works', ar: 'طريقة العمل' } },
-  { id: 'about', label: { en: 'About & Contact', ar: 'من نحن والتواصل' } },
-  { id: 'estimate', label: { en: 'Estimate & Booking', ar: 'التقدير والحجز' } },
+  {
+    id: 'home',
+    label: { en: 'Home', ar: 'الرئيسية' },
+    shortLabel: { en: 'Home', ar: 'الرئيسية' },
+  },
+  {
+    id: 'services',
+    label: { en: 'Services', ar: 'الخدمات' },
+    shortLabel: { en: 'Services', ar: 'الخدمات' },
+  },
+  {
+    id: 'process',
+    label: { en: 'How it works', ar: 'طريقة العمل' },
+    shortLabel: { en: 'Steps', ar: 'الخطوات' },
+  },
+  {
+    id: 'about',
+    label: { en: 'About & Contact', ar: 'من نحن والتواصل' },
+    shortLabel: { en: 'About', ar: 'من نحن' },
+  },
+  {
+    id: 'estimate',
+    label: { en: 'Estimate & Booking', ar: 'التقدير والحجز' },
+    shortLabel: { en: 'Booking', ar: 'الحجز' },
+  },
 ] as const;
 
 type SectionId = (typeof navigationItems)[number]['id'];
@@ -946,7 +966,8 @@ function App() {
                 aria-current={item.id === activeSection ? 'page' : undefined}
                 onClick={() => goToSection(item.id)}
               >
-                {translate(item.label, locale)}
+                <span className="nav-label-full">{translate(item.label, locale)}</span>
+                <span className="nav-label-short">{translate(item.shortLabel, locale)}</span>
               </button>
             ))}
           </nav>

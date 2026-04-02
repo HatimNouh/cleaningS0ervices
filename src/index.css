@@ -248,6 +248,10 @@ html[dir='rtl'] .brand-title {
   transition: 160ms ease;
 }
 
+.nav-label-short {
+  display: none;
+}
+
 .nav-button:hover {
   background: rgba(22, 102, 211, 0.08);
   color: var(--brand-dark);
@@ -1802,25 +1806,82 @@ button:disabled {
 
 @media (max-width: 560px) {
   .cleaning-app {
-    padding: 12px;
+    padding: 10px;
+  }
+
+  .page-shell {
+    gap: 12px;
   }
 
   .topbar {
-    gap: 10px;
-    padding: 12px;
+    gap: 8px;
+    padding: 10px 12px;
   }
 
   .topbar-actions {
     width: 100%;
     align-items: stretch;
+    gap: 6px;
   }
 
   .language-switch {
     align-self: flex-start;
   }
 
+  .language-switch button {
+    padding: 6px 10px;
+    font-size: 0.76rem;
+  }
+
   .inline-whatsapp {
     width: 100%;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+
+  .topnav {
+    gap: 4px;
+    width: calc(100% + 8px);
+    margin-inline: -4px;
+    padding-inline: 4px;
+  }
+
+  .nav-button {
+    flex: 0 0 auto;
+    padding: 7px 9px;
+    font-size: 0.76rem;
+  }
+
+  .nav-label-full {
+    display: none;
+  }
+
+  .nav-label-short {
+    display: inline;
+  }
+
+  .brand-lockup {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+
+  .brand-copy {
+    gap: 2px;
+  }
+
+  .brand-label,
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 0.9rem;
+    line-height: 1.22;
   }
 
   .content-stack,
@@ -1844,13 +1905,13 @@ button:disabled {
   .contact-card,
   .brand-showcase,
   .brand-video-card {
-    padding: 16px;
+    padding: 14px;
   }
 
   .section-badge,
   .mini-badge {
-    padding: 7px 11px;
-    font-size: 0.76rem;
+    padding: 6px 10px;
+    font-size: 0.72rem;
   }
 
   .section-heading h2 {
@@ -1868,6 +1929,46 @@ button:disabled {
   .contact-card small {
     font-size: 0.9rem;
     line-height: 1.55;
+  }
+
+  .hero-copy {
+    padding: 12px 14px 10px;
+  }
+
+  .hero-panel {
+    padding: 14px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.72rem, 8.5vw, 2.2rem);
+    margin: 10px 0 8px;
+  }
+
+  .hero-actions {
+    margin: 14px 0 12px;
+    gap: 8px;
+  }
+
+  .hero-pills .pill {
+    padding: 6px 9px;
+    font-size: 0.76rem;
+  }
+
+  .hero-panel-header {
+    gap: 6px;
+  }
+
+  .hero-panel-header h2 {
+    font-size: 1.16rem;
+  }
+
+  .hero-scene {
+    height: 124px;
+  }
+
+  .hero-photo-card {
+    padding: 8px 9px;
+    font-size: 0.76rem;
   }
 
   .service-grid,
